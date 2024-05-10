@@ -34,6 +34,4 @@ public class TopDownMovement : MonoBehaviour
         direction = direction * 5f;
         movementRigidbody.velocity = direction;
     }
-
-    
 }
