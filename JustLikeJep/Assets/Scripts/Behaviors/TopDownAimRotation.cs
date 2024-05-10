@@ -26,7 +26,6 @@ public class TopDownAimRotation : MonoBehaviour
     {
         // 마우스 위치 각도 계산
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Debug.Log(rotZ);
         // 각도에 따른 회전
         bool isAimRight = Mathf.Abs(rotZ) <= 90f;
         Flip(isAimRight);
