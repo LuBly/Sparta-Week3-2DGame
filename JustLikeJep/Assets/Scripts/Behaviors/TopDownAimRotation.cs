@@ -12,7 +12,7 @@ public class TopDownAimRotation : MonoBehaviour
 
     private void Awake()
     {
-        controller = GetComponent<TopDownController>();
+        controller = GetComponentInParent<TopDownController>();
     }
 
     private void Start()

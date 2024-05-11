@@ -30,9 +30,4 @@ public class DataManager : MonoBehaviour
             return instance;
         }
     }
-
-    public void SavePlayerInfo(string inputName)
-    {
-        playerInfo.name = inputName;
-    }
 }

@@ -6,13 +6,24 @@ public class CharacterInfoHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerName;
     [SerializeField] private PlayerInfoSO playerInfo;
-    private void Start()
+    private void Awake()
     {
-        SettingName();   
+        SetPlayer();   
     }
 
-    private void SettingName()
+    private void SetPlayer()
+    {
+        SetName();
+        SetPlayerRenderer();
+    }
+
+    private void SetName()
     {
         playerName.text = playerInfo.name;
+    }
+
+    private void SetPlayerRenderer()
+    {
+        Instantiate(playerInfo.PlayerRenderer, transform);
     }
 }
