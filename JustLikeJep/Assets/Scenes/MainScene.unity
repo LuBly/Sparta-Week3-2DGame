@@ -223,7 +223,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!1 &111943018
 GameObject:
@@ -3285,6 +3285,7 @@ GameObject:
   - component: {fileID: 473893395}
   - component: {fileID: 473893396}
   - component: {fileID: 473893397}
+  - component: {fileID: 473893398}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3451,6 +3452,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1}
   m_Size: {x: 0.5, y: 2}
   m_Direction: 0
+--- !u!114 &473893398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473893389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73a002ec5da32b4b8453aa69adb25e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 393120215}
+  playerInfo: {fileID: 11400000, guid: f6e4ac2f9138b5949b9a1203dc4b1bf6, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

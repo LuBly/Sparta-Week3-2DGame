@@ -2,6 +2,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DefaultCharacterInfo", menuName = "Info/Character/Default", order = 0)]
 public class CharacterInfoSO : ScriptableObject
 {
-    [Header("Á¤Àû ½ºÅİ")]
+    [Header("ì •ì  ìŠ¤í…Ÿ")]
     public string name;
 }

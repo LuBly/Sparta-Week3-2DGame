@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b502af3acf997f4490dcef6a7dfdd83, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
-  name: InputField (TMP)
+  name: "\uD604\uD638"
   PlayerRenderer: {fileID: 2458880388829268195, guid: f233971c7496a364a918917edaf977c2, type: 3}
