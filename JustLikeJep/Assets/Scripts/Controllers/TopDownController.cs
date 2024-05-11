@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TopDownController : MonoBehaviour
 {
-    //ControllerµéÀº °¢ °´Ã¼µé¿¡¼­ È£ÃâÇÒ ¼ö ÀÖ´Â eventµéÀ» ¸ğ¾ÆµÎ´Â °´Ã¼
+    //Controllerë“¤ì€ ê° ê°ì²´ë“¤ì—ì„œ í˜¸ì¶œí•  ìˆ˜ ìˆëŠ” eventë“¤ì„ ëª¨ì•„ë‘ëŠ” ê°ì²´
     public event Action<Vector2> OnMoveEvent;
     public event Action<Vector2> OnLookEvent;
 

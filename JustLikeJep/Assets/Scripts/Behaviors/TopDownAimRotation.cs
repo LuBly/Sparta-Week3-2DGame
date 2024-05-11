@@ -4,7 +4,11 @@ using UnityEngine;
 public class TopDownAimRotation : MonoBehaviour
 {
     [SerializeField] Transform headPivot;
+    [SerializeField] Transform playerRenderer;
     TopDownController controller;
+
+    // ìµœì´ˆ ìƒíƒœì˜ origScaleì„ ì €ì¥í•´ë‘˜ ë³€ìˆ˜
+    Vector3 origPlayerScale;
 
     private void Awake()
     {
@@ -14,6 +18,7 @@ public class TopDownAimRotation : MonoBehaviour
     private void Start()
     {
         controller.OnLookEvent += OnAim;
+        origPlayerScale = playerRenderer.localScale;
     }
 
     private void OnAim(Vector2 newAimDirection)
@@ -24,34 +29,35 @@ public class TopDownAimRotation : MonoBehaviour
 
     private void RotateHead(Vector2 direction)
     {
-        // ¸¶¿ì½º À§Ä¡ °¢µµ °è»ê
+        // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ê°ë„ ê³„ì‚°
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        // °¢µµ¿¡ µû¸¥ È¸Àü
+        // ê°ë„ì— ë”°ë¥¸ íšŒì „
         bool isAimRight = Mathf.Abs(rotZ) <= 90f;
         Flip(isAimRight);
 
-        // ToDo : ¸Ó¸®È¸Àü ¹İ°æ Ãß°¡
+        // ToDo : ë¨¸ë¦¬íšŒì „ ë°˜ê²½ ì¶”ê°€
         headPivot.rotation = Quaternion.Euler(0, 0, rotZ);
     }
 
     private void Flip(bool isAimRight)
     {
-        // boneÀ¸·Î ±¸¼ºµÇ¾î Flip »ç¿ë ºÒ°¡ => scaleÀ» ÅëÇØ È¸ÀüÀ» ±¸Çö
-        Vector3 flipPlayerScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        // boneìœ¼ë¡œ êµ¬ì„±ë˜ì–´ Flip ì‚¬ìš© ë¶ˆê°€ => scaleì„ í†µí•´ íšŒì „ì„ êµ¬í˜„
+        Vector3 flipPlayerScale = new Vector3(playerRenderer.localScale.x, playerRenderer.localScale.y, playerRenderer.localScale.z);
         Vector3 flipBoneScale = new Vector3(headPivot.localScale.x, headPivot.localScale.y, headPivot.localScale.z);
         if(isAimRight)
         {
-            flipPlayerScale.x = 1;
+            flipPlayerScale.x = origPlayerScale.x;
             flipBoneScale.x = 1;
             flipBoneScale.y = 1;
         }
         else
         {
-            flipPlayerScale.x = -1;
+            flipPlayerScale.x = -origPlayerScale.x;
             flipBoneScale.x = -1;
             flipBoneScale.y = -1;
         }
-        transform.localScale = flipPlayerScale;
+
+        playerRenderer.localScale = flipPlayerScale;
         headPivot.localScale = flipBoneScale;
     }
 }
