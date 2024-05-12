@@ -5,7 +5,7 @@ public class MainButtonManager : MonoBehaviour
 {
     [SerializeField] GameObject nameUI;
     [SerializeField] GameObject characterListUI;
-    
+    [SerializeField] GameObject attendeeListUI;
     [SerializeField] TMP_InputField inputData;
     [SerializeField] CharacterInfoHandler characterInfoHandler;
     
@@ -17,6 +17,11 @@ public class MainButtonManager : MonoBehaviour
     public void OpenCharacterListUI()
     {
         characterListUI.SetActive(true);
+    }
+
+    public void OpenAttendeeListUI()
+    {
+        attendeeListUI.SetActive(true);
     }
 
     public void ChangeName()

@@ -4,32 +4,23 @@ using UnityEngine;
 
 public class CharacterInfoHandler : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI playerName;
-    [SerializeField] private PlayerInfoSO playerInfo;
-    private void Awake()
+    [SerializeField] protected TextMeshProUGUI name;
+
+    protected virtual void Awake()
     {
-        SetPlayer();   
+        SetCharacter();   
     }
 
-    private void SetPlayer()
-    {
-        SetName();
-        SetPlayerRenderer();
-    }
+    protected virtual void SetCharacter() { }
 
-    private void SetName()
-    {
-        playerName.text = playerInfo.name;
-    }
+    // 매개 변수가 없다면 playerInfo에서 값을 가져오고
+    protected virtual void SetName() { }
 
-    public void SetName(string inputName)
-    {
-        playerName.text = inputName;
-        playerInfo.name = inputName;
-    }
+    // 매개 변수가 있다면 playerInfo에 값을 변경해준다.
+    public virtual void SetName(string inputName) { }
 
-    private void SetPlayerRenderer()
+    public virtual string GetName() 
     {
-        Instantiate(playerInfo.PlayerRenderer, transform);
+        return "";
     }
 }
