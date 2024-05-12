@@ -22,6 +22,12 @@ public class CharacterInfoHandler : MonoBehaviour
         playerName.text = playerInfo.name;
     }
 
+    public void SetName(string inputName)
+    {
+        playerName.text = inputName;
+        playerInfo.name = inputName;
+    }
+
     private void SetPlayerRenderer()
     {
         Instantiate(playerInfo.PlayerRenderer, transform);

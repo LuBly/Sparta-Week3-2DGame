@@ -13,7 +13,8 @@ public class CharacterSelectBtn : MonoBehaviour
     public void SelectPlayer(int idx)
     {
         DataManager.Instance.playerInfo.PlayerRenderer = players[idx];
-        characterBtnImage.sprite = playerImages[idx];
+        if(characterBtnImage != null )
+            characterBtnImage.sprite = playerImages[idx];
         gameObject.SetActive(false);
     }
 }
