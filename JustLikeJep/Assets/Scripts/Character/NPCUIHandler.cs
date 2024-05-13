@@ -9,10 +9,8 @@ public class NPCUIHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.layer);
-        Debug.Log((int)targetLayer);
         // 충돌한 오브젝트가 Playe라면 팝업UI 오픈
-        if (collision.gameObject.layer == (int)targetLayer)
+        if (IsLayerMatced(targetLayer.value, collision.gameObject.layer))
         {
             OpenNPCUI();
         }
@@ -20,10 +18,15 @@ public class NPCUIHandler : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == targetLayer)
+        if (IsLayerMatced(targetLayer.value, collision.gameObject.layer))
         {
             CloseNPCUI();
         }
+    }
+
+    private bool IsLayerMatced(int layerMask, int objectLayer)
+    {
+        return layerMask == (layerMask | (1 << objectLayer));
     }
 
     private void OpenNPCUI()
