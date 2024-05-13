@@ -5,16 +5,14 @@ using UnityEngine;
 public class AttendeeManager : MonoBehaviour
 {
     [SerializeField] public List<string> attendeeNameList = new List<string>();
-    void Awake()
-    {
-        updateList();
-    }
 
-    void updateList()
+    public void updateList()
     {
+        List<string> curNameList = new List<string>();
         foreach(Transform child in transform) 
         {
-            attendeeNameList.Add(child.GetComponent<CharacterInfoHandler>().GetName());
+            curNameList.Add(child.GetComponent<CharacterInfoHandler>().GetName());
         }
+        attendeeNameList = curNameList;
     }
 }

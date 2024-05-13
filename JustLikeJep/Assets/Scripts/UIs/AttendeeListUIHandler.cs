@@ -8,8 +8,7 @@ public class AttendeeListUIHandler : MonoBehaviour
 {
     [SerializeField] AttendeeManager attendeeManager;
     [SerializeField] Transform contentsTransform;
-    [SerializeField] TMP_FontAsset font;
-    Color fontColor = Color.black;
+    [SerializeField] GameObject nameTextPrefab;
 
 
     private void OnEnable()
@@ -17,17 +16,28 @@ public class AttendeeListUIHandler : MonoBehaviour
         CreateNameList();
     }
 
-    // TODO
-    // text 오브젝트 생성하기
     private void CreateNameList()
     {
+        // NameList를 받아올 때마다 갱신
+        attendeeManager.updateList();
         foreach(string name in attendeeManager.attendeeNameList)
         {
-            TextMeshProUGUI newText = new TextMeshProUGUI();
-            newText.text = name;
-            newText.font = font;
-            newText.color = fontColor;
-            Instantiate(newText);
+            GameObject newText = Instantiate(nameTextPrefab, contentsTransform);
+            newText.GetComponent<TextMeshProUGUI>().text = name;
+        }
+    }
+
+    private void OnDisable()
+    {
+        // 정보 갱신을 위해 Contant의 자식 객체 전부 삭제
+        DestroyContents();
+    }
+
+    private void DestroyContents()
+    {
+        foreach(Transform child in contentsTransform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }
