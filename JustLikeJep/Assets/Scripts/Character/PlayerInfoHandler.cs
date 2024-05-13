@@ -1,8 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerInfoHandler : CharacterInfoHandler
 {
     [SerializeField] private PlayerInfoSO playerInfo;
+    
     protected override void Awake()
     {
         base.Awake();

@@ -1,11 +1,9 @@
-using System;
 using TMPro;
 using UnityEngine;
 
 public class CharacterInfoHandler : MonoBehaviour
 {
     [SerializeField] protected TextMeshProUGUI name;
-
     protected virtual void Awake()
     {
         SetCharacter();   
