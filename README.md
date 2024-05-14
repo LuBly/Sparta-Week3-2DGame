@@ -1,2 +1,2 @@
 # Sparta-Week3-2DGame
-Unity 게임개발 입문 개인과제
+## Project Blog : https://velog.io/@lubly/series/2DProject
