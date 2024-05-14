@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerInfoHandler : CharacterInfoHandler
 {
     [SerializeField] private PlayerInfoSO playerInfo;
-    
+    private GameObject curPlayerRenderer;
     protected override void Awake()
     {
         base.Awake();
@@ -36,6 +36,14 @@ public class PlayerInfoHandler : CharacterInfoHandler
 
     private void SetPlayerRenderer()
     {
-        Instantiate(playerInfo.PlayerRenderer, transform);
+        curPlayerRenderer = Instantiate(playerInfo.PlayerRenderer, transform);
+    }
+
+    public void ChangePlayerRenderer()
+    {
+        // 삭제하고
+        Destroy(curPlayerRenderer);
+        // 재생성
+        curPlayerRenderer = Instantiate(playerInfo.PlayerRenderer, transform);
     }
 }

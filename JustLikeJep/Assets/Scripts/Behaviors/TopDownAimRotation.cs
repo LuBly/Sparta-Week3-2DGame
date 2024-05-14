@@ -23,6 +23,8 @@ public class TopDownAimRotation : MonoBehaviour
 
     private void OnAim(Vector2 newAimDirection)
     {
+        // renderer 교체 중 null Exception 방지
+        if (playerRenderer == null || headPivot == null) return;
         // OnLook
         RotateHead(newAimDirection);
     }

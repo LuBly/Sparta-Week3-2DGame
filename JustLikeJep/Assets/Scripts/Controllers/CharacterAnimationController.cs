@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 public class CharacterAnimationController : AnimationController
@@ -22,6 +22,8 @@ public class CharacterAnimationController : AnimationController
 
     private void Move(Vector2 dir)
     {
+        // Destroy 예외 처리
+        if (animator == null) return;
         animator.SetBool(isMove, dir.magnitude > magnituteThreshhold);
     }
 }

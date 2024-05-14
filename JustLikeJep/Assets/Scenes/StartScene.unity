@@ -1420,6 +1420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterListUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5712750851741992031, guid: d0970586234ca7849a6bd940407889ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7212518371991155505, guid: d0970586234ca7849a6bd940407889ab, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
